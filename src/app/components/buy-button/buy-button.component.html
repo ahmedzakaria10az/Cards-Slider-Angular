@@ -1,0 +1,10 @@
+<p><input type="number" [(ngModel)]="orderCount" 
+           [disabled]="stock === 0" 
+           [max]="stock" 
+           placeholder="Order Quantity"></p>
+
+  <button [ngClass]="{'btn btn-danger': stock === 0, 'btn btn-primary': stock > 0}" 
+          [disabled]="stock === 0" 
+          (click)="buyProduct()">
+    {{ stock === 0 ? 'Out of Stock' : 'Buy' }} </button>
+  

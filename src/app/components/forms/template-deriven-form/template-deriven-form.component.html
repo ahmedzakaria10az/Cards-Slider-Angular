@@ -1,0 +1,26 @@
+<form (ngSubmit)="addprod()" #formng="ngForm">
+  
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" placeholder="enter product name" name="name" [(ngModel)]="newprod.title" required  #inpName="ngModel"> <!--pattern="[A-Za-z]"-->
+      <label for="floatingInput">Product name</label>
+    </div>
+    <p [hidden]="inpName.valid||inpName.untouched">
+      <small class="alert alert-danger" [hidden]="!inpName.errors?.['required']" >
+      product name is required
+       </small>
+    </p>
+    <div class="form-floating">
+      <input type="number" class="form-control" id="floatingPassword" placeholder="Add price" name="price" [(ngModel)]="newprod.price">
+      <label for="floatingPassword">Product Price</label>
+    </div>
+    <div class="form-floating">
+      <input type="number" class="form-control" id="floatingPassword" placeholder="Add stock" name="stock" [(ngModel)]="newprod.stock">
+      <label for="floatingPassword">Product stock</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="Add imgUrl" name="imgurl" [(ngModel)]="newprod.imgurl">
+      <label for="floatingPassword">Product image</label>
+    </div>
+    
+    <button class="btn btn-primary w-100" [disabled]="formng.invalid">submit </button>
+    </form>
